@@ -1,0 +1,23 @@
+{
+  "name": "Too-Duh-List.Vue3-Vite",
+  "version": "0.1.0",
+  "description": "Example Vue3 app using Vite",
+  "main": "index.js",
+  "repository": "https://github.com/TheAutomaTom/Too-Duh-List.Vue3-Vite.git",
+  "author": "Thomas Grossi",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "preview": "vite preview",
+    "build": "vue-tsc --noEmit && vite build"
+  },
+  "dependencies": {
+    "vue": "^3.2.25"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.3.1",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.5",
+    "vue-tsc": "^0.34.7"
+  }
+}
