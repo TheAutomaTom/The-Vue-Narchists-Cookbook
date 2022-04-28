@@ -1,21 +1,31 @@
 {
-  "name": "Too-Duh-List.Vue3-Vite",
+  "name": "The-Vue-Narchists-Cookbook",
   "version": "0.1.0",
   "description": "Example Vue3 app using Vite",
   "main": "index.js",
-  "repository": "https://github.com/TheAutomaTom/Too-Duh-List.Vue3-Vite.git",
+  "repository": "https://github.com/TheAutomaTom/The-Vue-Narchists-Cookbook.git",
   "author": "Thomas Grossi",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",
-    "build": "vue-tsc --noEmit && vite build"
+    "build": "vue-tsc --noEmit && vite build",
+    "tailwind-build-classes": "npx tailwindcss -i ./src/Tailwind.css -o ./dist/Tailwind.css --watch"
   },
   "dependencies": {
-    "vue": "^3.2.25"
+    "pinia": "^2.0.13",
+    "postcss-import": "^14.1.0",
+    "tailwind": "^4.0.0",
+    "vue": "^3.2.25",
+    "vue-router": "4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.1",
+    "autoprefixer": "^10.4.5",
+    "postcss": "^8.4.12",
+    "sass": "^1.51.0",
+    "sass-loader": "^12.6.0",
+    "tailwindcss": "^3.0.24",
     "typescript": "^4.5.4",
     "vite": "^2.9.5",
     "vue-tsc": "^0.34.7"
