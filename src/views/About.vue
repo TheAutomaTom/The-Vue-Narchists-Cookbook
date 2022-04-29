@@ -6,7 +6,12 @@
         <template v-slot:card-title>This app was created with...</template>
         <template v-slot:card-content>
           <ul>
-            <li v-for="credit in credits">{{ credit.title }}</li>
+            <li v-for="credit in credits">
+              {{ credit.title }}
+              <span style="font-size: 0.6rem">
+                <em>{{ credit.note }}</em>
+              </span>
+            </li>
           </ul>
         </template>
         <template v-slot:card-footer>
@@ -31,6 +36,7 @@ const credits = [
   { title: "Router 4" },
   { title: "Pinia" },
   { title: "Tailwind CSS" },
+  { title: "Volar", note: "(recommended Vue 3 VS Extension)" },
 ];
 </script>
 <style lang="scss"></style>

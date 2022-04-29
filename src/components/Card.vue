@@ -1,9 +1,12 @@
 <template>
   <div class="card">
-    <h3 class="card-title">
+    <span class="card-title">
       <slot name="card-title">Card Title</slot>
-      <hr />
-    </h3>
+    </span>
+    <span class="card-subtitle">
+      <slot name="card-subtitle"></slot>
+    </span>
+    <hr />
     <div class="card-content">
       <slot name="card-content"></slot>
     </div>
@@ -21,6 +24,10 @@
 }
 .card-title {
   @apply text-lg font-bold;
+}
+.card-subtitle {
+  @apply text-gray-600 italic;
+  font-size: 0.75rem;
 }
 .card-content {
   @apply text-sm p-2;

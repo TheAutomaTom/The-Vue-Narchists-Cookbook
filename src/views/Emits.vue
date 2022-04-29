@@ -11,27 +11,39 @@
           <Card>
             <template v-slot:card-title>Child Component</template>
             <template v-slot:card-content>
-              <EmitsExample @updated="msg = msg" />
+              <EmitsExample @updated="update" />
             </template>
           </Card>
-          <div class="flex my-2">
-            <span class="pl-5"
-              >Output at Parent: <strong>{{ msg }}</strong>
+          <div class="flex">
+            <span>
+              Output at Parent: <strong>{{ msg }}</strong>
             </span>
           </div>
-
-          <p>Parent Syntax:</p>
-          <span class="code-text"
-            >&lt;PropsExample :message="msg"&gt; &lt;/PropsExample&gt;</span
-          >
-          <p class="code-text">
-            &lt;Script... &gt; const msg = ref("Can you hear me, now?");
-          </p>
+          <hr />
           <p>Child Syntax:</p>
           <p class="code-text">
-            &lt;span&gt;Output at Child: {{ curliesOpen }}message
-            {{ curliesClose }} &lt;/span&gt;
+            <p class="code-text"
+              >&lt;input ... @input="handleUpdate"&gt; 
+            </p>
+            <p class="code-text">&lt;Script... &gt; </p> 
+            <p class="code-text">const emits = defineEmits(["updated"]);</p>
+            <div class="code-text">
+              <p >const handleUpdate = () => {</p>
+              <p class="code-text">emits("updated", msg.value);</p>
+              <p >};</p>
+            </div>
+
           </p>
+
+          <p>Parent Syntax:</p>
+          <div class="code-text">
+            &lt;EmitsExample @updated="update"/&gt;
+            <p >&lt;Script... &gt; </p> 
+            <p class="code-text">const msg = ref("Can you hear me, now?");</p>
+            <p class="code-text">const update = (newMsg: string) => </p>
+            <p>{ msg.value = newMsg; };</p>
+              
+          </div>
         </template>
         <template v-slot:card-footer></template>
       </Card>
@@ -45,6 +57,11 @@ import Card from "../components/Card.vue";
 import EmitsExample from "../components/EmitsExample.vue";
 import { ref } from "vue";
 const msg = ref("Can you hear me, now?");
+const update = (newMsg: string) => {
+  msg.value = newMsg;
+};
+{
+}
 const curliesOpen = "{{";
 const curliesClose = "}}";
 </script>

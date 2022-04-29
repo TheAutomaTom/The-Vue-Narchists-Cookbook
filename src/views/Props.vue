@@ -5,7 +5,7 @@
       <Card>
         <template v-slot:card-title>Parent-to-Child Communication</template>
         <template v-slot:card-content>
-          This is primary way a parent component can send data to it's children.
+          This is primary way a parent component can send data to its children.
           <div class="flex my-2">
             <span>Input at Parent: </span>
             <input type="text" class="grow bg-gray-200 ml-2" v-model="msg" />

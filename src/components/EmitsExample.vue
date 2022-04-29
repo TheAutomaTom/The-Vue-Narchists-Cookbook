@@ -5,7 +5,7 @@
       type="text"
       class="grow bg-gray-200 ml-2"
       v-model="msg"
-      @change="$emit('updated', msg)"
+      @input="handleUpdate"
     />
   </div>
 </template>
@@ -15,5 +15,8 @@ import { ref } from "vue";
 import EmitsVue from "../views/Emits.vue";
 const msg = ref("Can you hear me, now?");
 const emits = defineEmits(["updated"]);
+const handleUpdate = () => {
+  emits("updated", msg.value);
+};
 </script>
 <style scoped lang="scss"></style>

@@ -42,7 +42,30 @@
 
       <Card>
         <template v-slot:card-title>Example Title Slot</template>
-        <template v-slot:card-content>Example Content Slot </template>
+        <template v-slot:card-content
+          >Example Content Slot
+          <Card>
+            <template v-slot:card-title>Example Title Slot</template>
+            <template v-slot:card-content
+              >Example Content Slot
+              <Card>
+                <template v-slot:card-title>Example Title Slot</template>
+                <template v-slot:card-content
+                  >Example Content Slot
+                  <Card>
+                    <template v-slot:card-title>Example Title Slot</template>
+                    <template v-slot:card-content
+                      >Example Content Slot
+                    </template>
+                    <template v-slot:card-footer>Example Footer Slot</template>
+                  </Card></template
+                >
+                <template v-slot:card-footer>Example Footer Slot</template>
+              </Card></template
+            >
+            <template v-slot:card-footer>Example Footer Slot</template>
+          </Card>
+        </template>
         <template v-slot:card-footer>Example Footer Slot</template>
       </Card>
     </template>

@@ -20,14 +20,14 @@ export const routes = [
     component: Lifecycle,
   },
   {
-    path: "/emits",
-    name: "Emits",
-    component: Emits,
-  },
-  {
     path: "/props",
     name: "Props",
     component: Props,
+  },
+  {
+    path: "/emits",
+    name: "Emits",
+    component: Emits,
   },
   {
     path: "/slots",
