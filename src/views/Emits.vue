@@ -15,7 +15,7 @@
             </template>
           </Card>
           <div class="flex">
-            <span>
+            <span class="text-lg">
               Output at Parent: <strong>{{ msg }}</strong>
             </span>
           </div>

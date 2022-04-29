@@ -6,25 +6,29 @@
         All the data below is defined in the pinia store module, and accessed
         directly in the vue component template.
       </p>
-      <div class="radio-button-group" style="padding-top: 10px">
-        <div v-for="station in RadioStations">
+      <div
+        class="radio-button-group"
+        style="padding-top: 10px"
+        :key="store.updateToggle"
+      >
+        <div v-for="station in Stations">
           <input
             hidden
             type="radio"
             v-model="store.FavoriteStation"
             :value="station"
-            :id="station.stationId.callSign"
-            :label="station.stationId.callSign"
+            :id="station.station.callSign"
+            :label="station.station.callSign"
           />
           <label
-            :for="station.stationId.callSign"
+            :for="station.station.callSign"
             :class="
-              store.FavoriteStation.stationId.callSign ===
-              station.stationId.callSign
+              store.FavoriteStation.station.callSign ===
+              station.station.callSign
                 ? 'bg-yellow font-bold'
                 : ''
             "
-            >{{ station.stationId.callSign }}</label
+            >{{ station.station.callSign }}</label
           >
         </div>
       </div>
@@ -38,13 +42,13 @@
       <!-- 
       <div
         v-for="station in RadioStations"
-        :key="station.stationId.callSign"
+        :key="station.station.callSign"
       >
         <GRadioButton
           v-model="SelectedCallSign"
-          :value="station.stationId.callSign"
-          :id="station.stationId.callSign"
-          :label="station.stationId.callSign"
+          :value="station.station.callSign"
+          :id="station.station.callSign"
+          :label="station.station.callSign"
         />
       </div> -->
     </template>
@@ -57,12 +61,24 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, reactive, ref, watch, watchEffect } from "vue";
+import { storeToRefs } from "pinia";
 import Card from "../components/Card.vue";
 import GRadioButton from "../controls/GRadioButton.vue";
-import { useStores, RadioStations, RadioStation } from "../stores/Stores";
+import { useStores } from "../stores/Stores";
+import { IRadioStation } from "../models/RadioStations";
 const store = useStores();
+const Stations = reactive(store.RadioStations);
+
+watch(store.RadioStations, (n, o) => console.dir(n));
+
+// const updateStations = (rs: IRadioStation[]) => {
+//   RS.value = store.RadioStations;
+//   console.log("WATCHED!");
+// };
+//watchEffect(() => updateStations(store.RadioStations));
+
 const selected = computed((label: string) => {
-  store.FavoriteStation.stationId.callSign === label ? "bg-yellow" : "";
+  store.FavoriteStation.station.callSign === label ? "bg-yellow" : "";
 });
 </script>

@@ -1,63 +1,60 @@
 import { ref, computed } from "vue";
 import { defineStore } from "pinia";
+import * as model from "../models/RadioStations";
+import { Band } from "../models/RadioStations";
+import { RadioStations } from "./defaults/RadioStations";
 
-export interface RadioStation {
-  stationId: StationId;
-  city: City;
-  note: string;
-}
-
-type StationId = {
-  callSign: string;
-  frequency: number;
-};
-
-enum City {
-  Nashville = "Nashville",
-  NewOrleans = "New Orleans",
-  Raleigh = "Raleigh",
-  StPete = "St. Pete",
-}
-
-export const RadioStations: RadioStation[] = [
-  {
-    stationId: { callSign: "WXNA", frequency: 101.5 },
-    city: City.Nashville,
-    note: "",
-  },
-  {
-    stationId: { callSign: "WTUL", frequency: 91.5 },
-    city: City.NewOrleans,
-    note: "",
-  },
-  {
-    stationId: { callSign: "WKNC", frequency: 88.1 },
-    city: City.Raleigh,
-    note: "",
-  },
-  {
-    stationId: { callSign: "WMNF", frequency: 88.5 },
-    city: City.StPete,
-    note: "",
-  },
-];
-
+// Actual Store:
 export const useStores = defineStore("Stores", () => {
   let FavoriteStation = ref(RadioStations[3]);
+  let updateToggle = 0;
 
   const ComputedProperty = computed(
     () =>
-      `${FavoriteStation.value.stationId.frequency} ${FavoriteStation.value.city} is so cool!`
+      `${FavoriteStation.value.station.frequency} ${FavoriteStation.value.station.band} ${FavoriteStation.value.city} is so cool!`
   );
 
+  //Getters example (there must be alternative syntax)
+  // const x = 3;
+  // getters: {
+  //   doubleCount: () => {
+  //     x * 2;
+  //   };
+  // }
+
   // Lambdas replace `actions: {}`
-  //  ...which also replace Vuex Mutations
-  // const changeValue = (newValue: string) => {
-  //   myObject.value.myProp = newValue;
-  // };
+  //  ...which replaces Vuex Mutations
+  const AddStation = (
+    cs: string,
+    freq: number,
+    bnd: string,
+    cty: string
+  ): string => {
+    try {
+      const b = Band[bnd.toLowerCase() as keyof typeof Band]; //...string to enum
+      if (!(b in Band)) return "Invalid Band";
+      if (b === Band.FM && !(freq >= 88.0 && freq <= 108.0))
+        return "Invalid Band";
+      if (b === Band.AM && !(freq >= 540 && freq <= 1700))
+        return "Invalid Band";
+      if (!cs.match(/^[A-Za-z]+$/) || cs.length !== 4)
+        return "Invalid Call Sign";
+      if (!cty.match(/^[A-Za-z]+$/)) return "Invalid City";
+      RadioStations.push({
+        station: { callSign: cs, frequency: freq, band: b },
+        city: cty,
+      });
+      return "Success!";
+    } catch {
+      return "Invalid Input";
+    }
+  };
 
   return {
+    RadioStations,
     FavoriteStation,
     ComputedProperty,
+    AddStation,
+    updateToggle,
   };
 });

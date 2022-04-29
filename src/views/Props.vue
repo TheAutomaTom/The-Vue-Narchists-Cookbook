@@ -12,7 +12,7 @@
           </div>
           <Card>
             <template v-slot:card-title>Child Component</template>
-            <template v-slot:card-content>
+            <template v-slot:card-content class="text-lg">
               <PropsExample :message="msg" />
             </template>
           </Card>

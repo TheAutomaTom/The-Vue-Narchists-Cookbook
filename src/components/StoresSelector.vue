@@ -7,23 +7,27 @@
     <template v-slot:card-content>
       <!-- <div class="radio-button-group" style="padding-top: 10px"> -->
       <!--  -->
-      <label for="stations" style="padding-right: 8px">Pick a station:</label>
+      <div class="flex" :key="store.updateToggle">
+        <label for="stations" style="padding-right: 8px">Pick a station:</label>
 
-      <select
-        name="stations"
-        id="stations"
-        class="font-bold"
-        v-model="store.FavoriteStation"
-      >
-        <option
-          v-for="station in RadioStations"
-          :value="station"
-          :id="station.stationId.callSign"
+        <select
+          name="stations"
+          id="stations"
+          class="font-bold"
+          v-model="store.FavoriteStation"
         >
-          {{ station.stationId.callSign }}
-        </option>
-      </select>
-
+          <option
+            v-for="station in store.RadioStations"
+            :value="station"
+            :id="station.station.callSign"
+          >
+            {{ station.station.callSign }}
+          </option>
+        </select>
+        <span class="flex justify-center pl-2 italic font-bold">
+          {{ store.ComputedProperty }}
+        </span>
+      </div>
       <!--  -->
       <!-- <div v-for="station in RadioStations">
            <input
@@ -31,18 +35,18 @@
             type="radio"
             v-model="store.FavoriteStation"
             :value="station"
-            :id="station.stationId.callSign"
-            :label="station.stationId.callSign"
+            :id="station.station.callSign"
+            :label="station.station.callSign"
           />
           <label
-            :for="station.stationId.callSign"
+            :for="station.station.callSign"
             :class="
-              store.FavoriteStation.stationId.callSign ===
-              station.stationId.callSign
+              store.FavoriteStation.station.callSign ===
+              station.station.callSign
                 ? 'bg-yellow font-bold'
                 : ''
             "
-            >{{ station.stationId.callSign }}</label
+            >{{ station.station.callSign }}</label
           >
         </div>
       </div> -->
@@ -56,21 +60,17 @@
       <!-- 
       <div
         v-for="station in RadioStations"
-        :key="station.stationId.callSign"
+        :key="station.station.callSign"
       >
         <GRadioButton
           v-model="SelectedCallSign"
-          :value="station.stationId.callSign"
-          :id="station.stationId.callSign"
-          :label="station.stationId.callSign"
+          :value="station.station.callSign"
+          :id="station.station.callSign"
+          :label="station.station.callSign"
         />
       </div> -->
     </template>
-    <template v-slot:card-footer>
-      <span class="flex justify-center pl-2 italic font-bold">
-        {{ store.ComputedProperty }}
-      </span>
-    </template>
+    <template v-slot:card-footer> </template>
   </Card>
 </template>
 
@@ -78,9 +78,9 @@
 import { computed } from "vue";
 import Card from "../components/Card.vue";
 import GRadioButton from "../controls/GRadioButton.vue";
-import { useStores, RadioStations, RadioStation } from "../stores/Stores";
+import { useStores } from "../stores/Stores";
 const store = useStores();
 const selected = computed((label: string) => {
-  store.FavoriteStation.stationId.callSign === label ? "bg-yellow" : "";
+  store.FavoriteStation.station.callSign === label ? "bg-yellow" : "";
 });
 </script>

@@ -14,11 +14,13 @@
             decoupling backend operations before use in a broader context, like
             submitting api requests.
           </p>
+          <p>In this example, 3 components are all sharing the same store.</p>
         </template>
         <template v-slot:card-footer> </template>
       </Card>
       <StoresRadioButtons />
       <StoresSelector />
+      <StoresAddRadioStation />
     </template>
   </Body>
 </template>
@@ -29,4 +31,5 @@ import Body from "../components/Body.vue";
 import Card from "../components/Card.vue";
 import StoresRadioButtons from "../components/StoresRadioButtons.vue";
 import StoresSelector from "../components/StoresSelector.vue";
+import StoresAddRadioStation from "../components/StoresAddRadioStation.vue";
 </script>

@@ -54,4 +54,7 @@ a:hover {
 select {
   @apply bg-yellow rounded-md border-2;
 }
+input {
+  @apply grow bg-gray-200 ml-2;
+}
 </style>
