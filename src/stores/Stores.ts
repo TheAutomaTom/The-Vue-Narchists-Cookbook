@@ -24,24 +24,28 @@ export const useStores = defineStore("Stores", () => {
 
   // Lambdas replace `actions: {}`
   //  ...which replaces Vuex Mutations
-  const AddStation = (
+
+  let AddStation = (
     cs: string,
     freq: number,
-    bnd: string,
+    bnd: Band,
     cty: string
   ): string => {
     try {
-      const b = Band[bnd.toLowerCase() as keyof typeof Band]; //...string to enum
-      if (!(b in Band)) return "Invalid Band";
-      if (b === Band.FM && !(freq >= 88.0 && freq <= 108.0))
-        return "Invalid Band";
-      if (b === Band.AM && !(freq >= 540 && freq <= 1700))
-        return "Invalid Band";
+      // const b = Band[bnd as keyof typeof Band]; //...string to enum
+      // if (!(b.toString() in Band)) return "Invalid Band";
+      //if (Object.values(Band).includes(bnd.toString())) return "Invalid Band";
+
+      if (!(<any>Object).values(Band).includes(bnd))
+        if (bnd === Band.Fm && !(freq >= 88.0 && freq <= 108.0))
+          return "Invalid FM Frequency";
+      if (bnd === Band.Am && !(freq >= 540 && freq <= 1700))
+        return "Invalid AM Frequency";
       if (!cs.match(/^[A-Za-z]+$/) || cs.length !== 4)
         return "Invalid Call Sign";
       if (!cty.match(/^[A-Za-z]+$/)) return "Invalid City";
       RadioStations.push({
-        station: { callSign: cs, frequency: freq, band: b },
+        station: { callSign: cs, frequency: freq, band: bnd },
         city: cty,
       });
       return "Success!";

@@ -3,13 +3,18 @@
     <template v-slot:card-title>Add a Station</template>
     <template v-slot:card-content>
       <p>
-        This component doesn't import any models, it just calls an "Action" in
-        the store.
+        This component can send primitive data types directly to the store's
+        "actions."
       </p>
       <form @submit.prevent="handle">
         <GInputWithLabel label="Call Sign: " v-model="callSign" />
         <GInputWithLabel label="Frequency: " v-model="frequency" />
-        <GInputWithLabel label="Band: " v-model="band" />
+        <div class="flex">
+          <label>Band: </label>
+          <select name="bands" id="bands" class="font-bold" v-model="band">
+            <option v-for="key in Band" :key="key">{{ key }}</option>
+          </select>
+        </div>
         <GInputWithLabel label="City: " v-model="city" />
         <span>{{ response }}</span>
 
@@ -29,11 +34,18 @@ import { nextTick, ref, watch } from "vue";
 import Card from "../components/Card.vue";
 import GInputWithLabel from "../controls/GInputWithLabel.vue";
 import { useStores } from "../stores/Stores";
+import { Band } from "../models/RadioStations";
+// import { defineConfig } from "vite";
+// const x = defineConfig({
+//   // To access env vars here use process.env.TEST_VAR
+// });
 const store = useStores();
 
 const callSign = ref("");
 const frequency = ref(0);
-const band = ref("");
+const defaultBand =
+  import.meta.env.VITE_DEFAULT_RADIO_STATION_BAND === "fm" ? Band.Fm : Band.Am;
+const band = ref(defaultBand);
 const city = ref("");
 const response = ref("");
 watch(store.RadioStations, (n, o) => console.dir(n));
@@ -45,7 +57,7 @@ function handle() {
     band.value,
     city.value
   );
-  store.updateToggle++;
+
   //Failed attempt to make other components update on submit
   // nextTick(() => {
   //   response.value = r;

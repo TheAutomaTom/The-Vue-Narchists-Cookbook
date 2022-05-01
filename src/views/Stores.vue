@@ -20,16 +20,15 @@
       </Card>
       <StoresRadioButtons />
       <StoresSelector />
-      <StoresAddRadioStation />
+      <StoresAddStation />
     </template>
   </Body>
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
 import Body from "../components/Body.vue";
 import Card from "../components/Card.vue";
 import StoresRadioButtons from "../components/StoresRadioButtons.vue";
 import StoresSelector from "../components/StoresSelector.vue";
-import StoresAddRadioStation from "../components/StoresAddRadioStation.vue";
+import StoresAddStation from "../components/StoresAddStation.vue";
 </script>
