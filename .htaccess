@@ -1,0 +1,8 @@
+<IfModule FallbackResource.c>
+  RewriteEngine On
+  RewriteBase /The-Vue-Narchists-Cookbook/
+  RewriteRule ^The-Vue-Narchists-Cookbook/index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /The-Vue-Narchists-Cookbook/index.html [L]
+</IfModule>
