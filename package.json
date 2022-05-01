@@ -9,8 +9,9 @@
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",
-    "build": "vue-tsc --noEmit && vite build",
-    "tailwind-build-classes": "npx tailwindcss -i ./src/Tailwind.css -o ./dist/Tailwind.css --watch"
+    "prebuild": "npx tailwindcss -i ./src/Tailwind.css -o ./dist/tailwind.css && copyfiles -f dist/tailwind.css public",
+    "build": "vue-tsc --noEmit &&  vite build",
+    "postbuild": "copyfiles -f .htaccess public/tailwind.css dist"
   },
   "dependencies": {
     "pinia": "^2.0.13",
@@ -29,5 +30,11 @@
     "typescript": "^4.5.4",
     "vite": "^2.9.5",
     "vue-tsc": "^0.34.7"
-  }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
 }
