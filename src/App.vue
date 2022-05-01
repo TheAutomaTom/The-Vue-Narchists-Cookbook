@@ -1,12 +1,17 @@
 <template>
   <div class="app-div">
+    <!-- Aside/Header -->
     <div v-if="!isMobile" class="bg-gray-900"></div>
     <RouterLinks :isMobile="isMobile" />
+
+    <!-- Main Content -->
     <main role="main">
       <div :class="mobileClass">
         <router-view />
       </div>
     </main>
+
+    <!-- Right Padding -->
     <div v-if="!isMobile" />
   </div>
   <!-- <footer class="mt-auto">...</footer> -->

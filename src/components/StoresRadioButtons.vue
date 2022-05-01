@@ -6,11 +6,7 @@
         All the data below is defined in the pinia store module, and accessed
         directly in the vue component template.
       </p>
-      <div
-        class="radio-button-group"
-        style="padding-top: 10px"
-        :key="store.updateToggle"
-      >
+      <div class="radio-button-group" style="padding-top: 10px">
         <div v-for="station in Stations">
           <input
             hidden

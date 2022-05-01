@@ -1,12 +1,12 @@
 <template>
-  <div class="flex">
-    <label v-if="label">{{ label }}</label>
+  <div class="flex my-2">
+    <label v-if="label" :class="labelClass">{{ label }}</label>
     <input
-      type="text"
-      class="grow"
+      :type="inputType"
       v-bind="$attrs"
-      :value="modelValue"
       :placeholder="label"
+      :value="modelValue"
+      :class="inputClass"
       @input="emits('update:modelValue', 
         ($event.target as HTMLInputElement).value);"
     />
@@ -16,7 +16,9 @@
 <script setup lang="ts">
 const props = defineProps({
   label: String,
-  type: String,
+  inputType: String,
+  labelClass: String,
+  inputClass: String,
   modelValue: [Number, String],
 });
 const emits = defineEmits(["update:modelValue"]);

@@ -11,7 +11,8 @@
     "preview": "vite preview",
     "prebuild": "npx tailwindcss -i ./src/Tailwind.css -o ./dist/tailwind.css && copyfiles -f dist/tailwind.css public",
     "build": "vue-tsc --noEmit &&  vite build",
-    "postbuild": "copyfiles -f .htaccess public/tailwind.css dist"
+    "postbuild": "copyfiles -f .htaccess public/tailwind.css dist",
+    "rebuild-tailwind":"npx tailwindcss -i ./src/Tailwind.css -o ./dist/tailwind.css"
   },
   "dependencies": {
     "pinia": "^2.0.13",

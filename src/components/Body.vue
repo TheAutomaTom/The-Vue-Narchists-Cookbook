@@ -22,8 +22,8 @@
   @apply text-gray-600 italic;
   font-size: 0.75rem;
 }
-// <!-- UNSCOPED -->
 </style>
+<!-- UNSCOPED -->
 <style lang="scss">
 html,
 body {
@@ -43,18 +43,26 @@ a:hover {
   @apply pl-2 text-code font-mono font-bold;
 }
 .radio-button-group {
-  @apply flex justify-around;
+  @apply flex flex-wrap justify-around;
 }
+button {
+  @apply font-bold;
+}
+button,
 .radio-button-group label {
   @apply mb-2 px-2 rounded-md border-2;
 }
+button:hover,
 .radio-button-group label:hover {
   @apply bg-yellow border-yellow;
 }
 select {
-  @apply bg-yellow rounded-md border-2;
+  @apply bg-gray-200 rounded-md border-2;
 }
 input {
   @apply grow bg-gray-200 ml-2;
+}
+input {
+  padding-left: 6px !important;
 }
 </style>

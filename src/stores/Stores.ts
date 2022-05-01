@@ -2,13 +2,12 @@ import { ref, computed } from "vue";
 import { defineStore } from "pinia";
 import * as model from "../models/RadioStations";
 import { Band } from "../models/RadioStations";
-import { RadioStations } from "./defaults/RadioStations";
+import * as defaults from "./defaults/RadioStations";
 
 // Actual Store:
 export const useStores = defineStore("Stores", () => {
-  let FavoriteStation = ref(RadioStations[3]);
-  let updateToggle = 0;
-
+  const RadioStations = ref(defaults.RadioStations);
+  const FavoriteStation = ref(defaults.RadioStations[2]);
   const ComputedProperty = computed(
     () =>
       `${FavoriteStation.value.station.frequency} ${FavoriteStation.value.station.band} ${FavoriteStation.value.city} is so cool!`
@@ -44,7 +43,7 @@ export const useStores = defineStore("Stores", () => {
       if (!cs.match(/^[A-Za-z]+$/) || cs.length !== 4)
         return "Invalid Call Sign";
       if (!cty.match(/^[A-Za-z]+$/)) return "Invalid City";
-      RadioStations.push({
+      RadioStations.value.push({
         station: { callSign: cs, frequency: freq, band: bnd },
         city: cty,
       });
@@ -59,6 +58,8 @@ export const useStores = defineStore("Stores", () => {
     FavoriteStation,
     ComputedProperty,
     AddStation,
-    updateToggle,
   };
 });
+function reactive(RadioStations: model.IRadioStation[]) {
+  throw new Error("Function not implemented.");
+}

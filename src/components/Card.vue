@@ -33,6 +33,6 @@
   @apply text-sm p-2;
 }
 .card-footer {
-  @apply text-sm font-bold text-right pr-10;
+  @apply text-sm font-bold pr-10;
 }
 </style>

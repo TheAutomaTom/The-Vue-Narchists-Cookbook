@@ -3,29 +3,37 @@
     <template v-slot:card-title>Add a Station</template>
     <template v-slot:card-content>
       <p>
-        This component can send primitive data types directly to the store's
-        "actions."
+        This component can send primitive data types directly to the store's "actions."
       </p>
-      <form @submit.prevent="handle">
-        <GInputWithLabel label="Call Sign: " v-model="callSign" />
-        <GInputWithLabel label="Frequency: " v-model="frequency" />
-        <div class="flex">
-          <label>Band: </label>
-          <select name="bands" id="bands" class="font-bold" v-model="band">
-            <option v-for="key in Band" :key="key">{{ key }}</option>
-          </select>
-        </div>
-        <GInputWithLabel label="City: " v-model="city" />
-        <span>{{ response }}</span>
 
-        <button type="submit">Add Station</button>
-      </form>
-      <!-- <p><label>Call Sign:</label><input type="text" v-model="callSign" /></p>
-      <p><label>Frequency:</label><input type="text" v-model="frequency" /></p>
-      <p><label>City:</label><input type="text" v-model="city" /></p> -->
+      <GInputWithLabel
+        label="Call Sign:"
+        v-model="callSign"
+        labelClass="flex-0 w-[70px]"
+      />
+
+      <GInputWithLabel label="Frequency:" v-model="frequency" labelClass="w-[70px]" />
+
+      <span style="display: inline-block; width: 78px">Band:</span>
+      <select
+        name="bands"
+        id="bands"
+        v-model="band"
+        class="flex-0 w-[70px]"
+        style="display: inline-block"
+      >
+        <option v-for="key in Band" :key="key">{{ key }}</option>
+      </select>
+
+      <GInputWithLabel label="City:" v-model="city" labelClass="flex-0 w-[70px]" />
     </template>
 
-    <template v-slot:card-footer> </template>
+    <template v-slot:card-footer>
+      <div style="display: flex; justify-content: space-between">
+        <div class="italic" style="padding-left: 20px">{{ response }}</div>
+        <button @click="handle">Add Station</button>
+      </div>
+    </template>
   </Card>
 </template>
 
@@ -35,10 +43,6 @@ import Card from "../components/Card.vue";
 import GInputWithLabel from "../controls/GInputWithLabel.vue";
 import { useStores } from "../stores/Stores";
 import { Band } from "../models/RadioStations";
-// import { defineConfig } from "vite";
-// const x = defineConfig({
-//   // To access env vars here use process.env.TEST_VAR
-// });
 const store = useStores();
 
 const callSign = ref("");
@@ -64,4 +68,3 @@ function handle() {
   // });
 }
 </script>
-<style scoped lang="scss"></style>
