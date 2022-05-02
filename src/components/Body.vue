@@ -1,14 +1,25 @@
 <template>
   <div class="p-3">
-    <span class="page-title">
-      <slot name="page-title">Page Title</slot>
-    </span>
+    <!-- Icon & Title ----------------------->
+    <h1 class="page-title">
+      <slot name="page-title-icon">
+        <fa :icon="['fas', 'circle-check']" />
+      </slot>
+      <span>
+        <slot name="page-title">
+          {{ $route.name }}
+        </slot>
+      </span>
+    </h1>
+    <!-- Subtitle --------------------------->
     <span class="page-subtitle">
       <slot name="page-subtitle" />
     </span>
+    <!-- Content ---------------------------->
     <div>
       <slot name="page-content">Empty...</slot>
     </div>
+    <!--------------------------------------->
   </div>
 </template>
 
@@ -16,7 +27,10 @@
 <!-- SCOPED -->
 <style scoped lang="scss">
 .page-title {
-  @apply text-xl font-bold text-gray-600;
+  @apply text-xl font-bold text-gray-600 pb-1 pl-1;
+}
+.page-title span {
+  @apply p-1;
 }
 .page-subtitle {
   @apply text-gray-600 italic;

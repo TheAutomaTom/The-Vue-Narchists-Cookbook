@@ -1,6 +1,8 @@
 <template>
   <Body>
-    <template v-slot:page-title> Emits</template>
+    <template v-slot:page-title-icon>
+      <fa :icon="['fas', 'radio']" />
+    </template>
     <template v-slot:page-content>
       <Card>
         <template v-slot:card-title>Child-to-Parent Communication</template>

@@ -1,8 +1,7 @@
 <template>
   <Body>
-    <template v-slot:page-title>
-      <fa :icon="['fas', 'circle-check']" />
-      About
+    <template v-slot:page-title-icon>
+      <fa :icon="['fas', 'hat-wizard']" />
     </template>
     <template v-slot:page-content>
       <Card>

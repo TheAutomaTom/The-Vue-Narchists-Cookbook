@@ -1,6 +1,8 @@
 <template>
   <Body>
-    <template v-slot:page-title> Slots </template>
+    <template v-slot:page-title-icon>
+      <fa :icon="['fas', 'book-skull']" />
+    </template>
     <template v-slot:page-content>
       <Card>
         <template v-slot:card-title

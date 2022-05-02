@@ -1,6 +1,6 @@
 <template>
   <div class="app-div">
-    <!-- Aside/Header -->
+    <!-- Aside/Nav-->
     <div v-if="!isMobile" class="bg-gray-900"></div>
     <RouterLinks :isMobile="isMobile" />
 
@@ -35,6 +35,9 @@ const onResize = (e: Event) => {
   isMobile.value = window.innerWidth < 767.5;
   mobileClass.value = isMobile.value ? "px-7" : "";
 };
+// const routeName = computed((label: string) => {
+//   store.FavoriteStation.station.callSign === label ? "bg-yellow" : "";
+// });
 </script>
 <style scoped lang="postcss">
 .app-div {

@@ -1,6 +1,8 @@
 <template>
   <Body>
-    <template v-slot:page-title> Props</template>
+    <template v-slot:page-title-icon>
+      <fa :icon="['fas', 'tower-cell']" />
+    </template>
     <template v-slot:page-content>
       <Card>
         <template v-slot:card-title>Parent-to-Child Communication</template>

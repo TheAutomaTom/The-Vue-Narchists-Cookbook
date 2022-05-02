@@ -5,8 +5,6 @@ import Emits from "../views/Emits.vue";
 import Lifecycle from "../views/Lifecycle.vue";
 import Props from "../views/Props.vue";
 import Slots from "../views/Slots.vue";
-import Tests from "../views/Tests.vue";
-import Validations from "../views/Validations.vue";
 
 export const routes = [
   {
@@ -38,16 +36,6 @@ export const routes = [
     path: "/stores",
     name: "Stores",
     component: Stores,
-  },
-  {
-    path: "/validations",
-    name: "Validations",
-    component: Validations,
-  },
-  {
-    path: "/tests",
-    name: "Tests",
-    component: Tests,
   },
 ];
 
