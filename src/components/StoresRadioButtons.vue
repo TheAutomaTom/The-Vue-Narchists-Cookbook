@@ -32,7 +32,7 @@
           <fa
             v-if="store.FavoriteStation.station === station.station"
             :icon="['fas', 'circle-check']"
-            style="position: absolute; right: 0"
+            style="position: absolute; right: 0; color: brown"
           />
         </div>
       </div>
