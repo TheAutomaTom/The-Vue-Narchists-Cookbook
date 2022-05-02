@@ -1,6 +1,9 @@
 <template>
   <Body>
-    <template v-slot:page-title> About </template>
+    <template v-slot:page-title>
+      <fa :icon="['fas', 'circle-check']" />
+      About
+    </template>
     <template v-slot:page-content>
       <Card>
         <template v-slot:card-title>This app was created with...</template>

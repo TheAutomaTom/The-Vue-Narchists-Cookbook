@@ -3,11 +3,15 @@
     <template v-slot:card-title>Binding directly to store data</template>
     <template v-slot:card-content>
       <p>
-        All the data below is defined in the pinia store module, and accessed
-        directly in the vue component template.
+        All the data below is defined in the pinia store module, and accessed directly in
+        the vue component template.
       </p>
       <div class="radio-button-group" style="padding-top: 10px">
-        <div v-for="station in Stations">
+        <div
+          v-for="station in Stations"
+          :key="station.station.callSign"
+          style="position: relative; padding-right: 5px"
+        >
           <input
             hidden
             type="radio"
@@ -19,15 +23,20 @@
           <label
             :for="station.station.callSign"
             :class="
-              store.FavoriteStation.station.callSign ===
-              station.station.callSign
+              store.FavoriteStation.station.callSign === station.station.callSign
                 ? 'bg-yellow font-bold'
                 : ''
             "
             >{{ station.station.callSign }}</label
           >
+          <fa
+            v-if="store.FavoriteStation.station === station.station"
+            :icon="['fas', 'circle-check']"
+            style="position: absolute; right: 0"
+          />
         </div>
       </div>
+
       <!-- Since Props must be strongly typed, 
           we can't pass in an object as a value... -->
 

@@ -12,9 +12,13 @@
     "prebuild": "npx tailwindcss -i ./src/Tailwind.css -o ./dist/tailwind.css && copyfiles -f dist/tailwind.css public",
     "build": "vue-tsc --noEmit &&  vite build",
     "postbuild": "copyfiles -f .htaccess public/tailwind.css dist",
-    "rebuild-tailwind":"npx tailwindcss -i ./src/Tailwind.css -o ./dist/tailwind.css"
+    "rebuild-tailwind": "npx tailwindcss -i ./src/Tailwind.css -o ./dist/tailwind.css"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-regular-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/vue-fontawesome": "^3.0.0-5",
     "pinia": "^2.0.13",
     "postcss-import": "^14.1.0",
     "tailwind": "^4.0.0",
