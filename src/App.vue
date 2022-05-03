@@ -1,21 +1,52 @@
-<script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
-</template>
+  <div class="app-div">
+    <!-- Aside/Nav-->
+    <div v-if="!isMobile" class="bg-gray-900"></div>
+    <RouterLinks :isMobile="isMobile" />
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+    <!-- Main Content -->
+    <main role="main">
+      <div :class="mobileClass">
+        <router-view />
+      </div>
+    </main>
+
+    <!-- Right Padding -->
+    <div v-if="!isMobile" />
+  </div>
+  <!-- <footer class="mt-auto">...</footer> -->
+</template>
+<script setup lang="ts">
+import RouterLinks from "./components/RouterLinks.vue";
+import { computed, onUnmounted, ref } from "vue";
+import { onMounted } from "vue";
+
+onMounted(() => {
+  window.addEventListener("resize", onResize);
+});
+onUnmounted(() => {
+  window.removeEventListener("resize", onResize);
+});
+
+//Cheater sheet: { sm: "300px", md: "768px", lg: "976px", xl: "1440px" }
+let isMobile = ref(window.innerWidth < 767.5);
+let mobileClass = ref(isMobile.value ? "px-7" : "");
+const onResize = (e: Event) => {
+  isMobile.value = window.innerWidth < 767.5;
+  mobileClass.value = isMobile.value ? "px-7" : "";
+};
+// const routeName = computed((label: string) => {
+//   store.FavoriteStation.station.callSign === label ? "bg-yellow" : "";
+// });
+</script>
+<style scoped lang="postcss">
+.app-div {
+  @apply h-full grid
+    sm:grid-cols-1
+    sm:grid-rows-[auto_1fr]
+    md:grid-cols-[0.5fr_120px_3fr_1fr]
+    md:grid-rows-1;
+
+  height: 100vh;
 }
 </style>
