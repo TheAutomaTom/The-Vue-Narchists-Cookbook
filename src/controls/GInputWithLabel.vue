@@ -22,7 +22,9 @@ const props = defineProps({
   modelValue: [Number, String],
 });
 const emits = defineEmits(["update:modelValue"]);
-const handleInput = (e: Event) => {
-  emits("update:modelValue", (e.target as HTMLInputElement).value);
-};
+
+// Example in script:
+// const handleInput = (e: Event) => {
+//   emits("update:modelValue", (e.target as HTMLInputElement).value);
+// };
 </script>

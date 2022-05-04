@@ -37,8 +37,9 @@ const credits = [
   { title: "Vite" },
   { title: "Router 4" },
   { title: "Pinia" },
-  { title: "Tailwind CSS" },
-  { title: "Volar", note: "(recommended Vue 3 VS Extension)" },
+  { title: "Tailwind CSS", note: "(all custom components)" },
+  { title: "Font Awesome 5", note: "(free svg library)" },
+  { title: "Volar", note: "(Vue 3 VS Code Extension)" },
 ];
 </script>
 <style lang="scss"></style>

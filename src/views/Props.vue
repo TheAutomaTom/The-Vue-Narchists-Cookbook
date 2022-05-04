@@ -15,9 +15,11 @@
           <Card>
             <template v-slot:card-title>Child Component</template>
             <template v-slot:card-content class="text-lg">
-              <PropsExample :message="msg" />
+              <PropsExample :message="msg" :routerProp="routerProp" />
             </template>
           </Card>
+
+          <!-- Syntax notes... -->
           <p>Parent Syntax:</p>
           <div class="code-text">
             <p>&lt;PropsExample :message="msg"/&gt;</p>
@@ -41,6 +43,11 @@ import Body from "../components/Body.vue";
 import Card from "../components/Card.vue";
 import PropsExample from "../components/PropsExample.vue";
 import { ref } from "vue";
+
+const props = defineProps({
+  routerProp: { type: String },
+});
+
 const msg = ref("Can you hear me, now?");
 const curliesOpen = "{{";
 const curliesClose = "}}";
