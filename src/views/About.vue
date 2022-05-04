@@ -39,6 +39,8 @@ const credits = [
   { title: "Pinia" },
   { title: "Tailwind CSS" },
   { title: "Volar", note: "(recommended Vue 3 VS Extension)" },
+  { title: "Script Setup Syntax", note: "https://vuejs.org/api/sfc-script-setup.html#basic-syntax" },
+  
 ];
 </script>
 <style lang="scss"></style>

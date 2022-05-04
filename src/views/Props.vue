@@ -1,7 +1,7 @@
 <template>
   <Body>
     <template v-slot:page-title-icon>
-      <fa :icon="['fas', 'tower-cell']" />
+      <fa :icon="['fas', 'satellite-dish']" />
     </template>
     <template v-slot:page-content>
       <Card>

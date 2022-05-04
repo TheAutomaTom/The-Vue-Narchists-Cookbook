@@ -5,6 +5,7 @@ import Emits from "../views/Emits.vue";
 import Lifecycle from "../views/Lifecycle.vue";
 import Props from "../views/Props.vue";
 import Slots from "../views/Slots.vue";
+import Watchers from "../views/Watchers.vue";
 
 export const routes = [
   {
@@ -16,6 +17,11 @@ export const routes = [
     path: "/lifecycle",
     name: "Lifecycle",
     component: Lifecycle,
+  },
+  {
+    path: "/watchers",
+    name: "Watchers",
+    component: Watchers,
   },
   {
     path: "/props",
