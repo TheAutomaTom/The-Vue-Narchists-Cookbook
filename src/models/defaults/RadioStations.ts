@@ -1,4 +1,4 @@
-import * as model from "../../models/RadioStations";
+import * as model from "../RadioStations";
 export let RadioStations: model.IRadioStation[] = [
   {
     station: { callSign: "WXNA", frequency: 101.5, band: model.Band.Fm },

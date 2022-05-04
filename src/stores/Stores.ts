@@ -2,7 +2,7 @@ import { ref, computed } from "vue";
 import { defineStore } from "pinia";
 import * as model from "../models/RadioStations";
 import { Band } from "../models/RadioStations";
-import * as defaults from "./defaults/RadioStations";
+import * as defaults from "../models/defaults/RadioStations";
 
 // Actual Store:
 export const useStores = defineStore("Stores", () => {
