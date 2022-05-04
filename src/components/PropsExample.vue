@@ -3,7 +3,7 @@
     Output at Child: <strong>{{ message }}</strong>
   </p>
   <p class="text-md">
-    Prop defined in Router: <strong>{{ routerProp }}</strong>
+    <!-- Prop defined in Router: <strong>{{ routerProp }}</strong> -->
   </p>
 </template>
 
@@ -13,8 +13,10 @@
 // JS w/ default defined:
 const props = defineProps({
   message: { type: String, default: "Default value set in component!" },
-  routerProp: { type: String },
+  // routerProp: { type: String },
 });
+
+
 
 // Alternative TS syntax...
 // Typescript w/ default value defined:

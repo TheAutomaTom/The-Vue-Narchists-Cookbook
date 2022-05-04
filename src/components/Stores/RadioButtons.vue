@@ -68,10 +68,10 @@
 <script setup lang="ts">
 import { computed, reactive, ref, watch, watchEffect } from "vue";
 import { storeToRefs } from "pinia";
-import Card from "../components/Card.vue";
+import Card from "../../components/Card.vue";
 import GRadioButton from "../controls/GRadioButton.vue";
-import { useStores } from "../stores/Stores";
-import { IRadioStation } from "../models/RadioStations";
+import { useStores } from "../../stores/Stores";
+import { IRadioStation } from "../../models/RadioStations";
 const store = useStores();
 const Stations = reactive(store.RadioStations);
 

@@ -14,21 +14,27 @@ export const routes = [
   {
     path: "/watchers",
     name: "Watchers",
-    component: Watchers,
+    component: () => import("../views/Watchers.vue"),
   },
   {
     path: "/props",
     name: "Props",
     component: () => import("../views/Props.vue"),
-    props: {
-      routerProp:
-        "Note, the router can send a parent view a prop defined in router/index.ts",
-      anotherRouterProp: "You can send more than one",
-    },
+    // props: {
+    //   routerProp:
+    //     "Note, the router can send a parent view a prop defined in router/index.ts",
+    //   anotherRouterProp: "You can send more than one",
+    // },
     //It's unclear how to add this to the above static props...
     // props: (route: string) => {
     //   return "readPropFromUrlQuery: route.query.route-query-value";
     // },
+    //Apparently meta is an alternative to "props," so maybe the static props could go there.
+    meta:{
+      routerProp:
+        "Router/index.ts can send a parent view a prop named 'meta'",
+      anotherRouterProp: "You can send more than one",
+    }
   },
   {
     path: "/emits",

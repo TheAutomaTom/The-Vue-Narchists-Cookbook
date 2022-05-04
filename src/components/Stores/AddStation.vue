@@ -39,10 +39,10 @@
 
 <script setup lang="ts">
 import { nextTick, ref, watch } from "vue";
-import Card from "../components/Card.vue";
-import GInputWithLabel from "../controls/GInputWithLabel.vue";
-import { useStores } from "../stores/Stores";
-import { Band } from "../models/RadioStations";
+import Card from "../../components/Card.vue";
+import GInputWithLabel from "../../controls/GInputWithLabel.vue";
+import { useStores } from "../../stores/Stores";
+import { Band } from "../../models/RadioStations";
 const store = useStores();
 
 const callSign = ref("");

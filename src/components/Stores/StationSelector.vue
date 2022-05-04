@@ -34,9 +34,9 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import Card from "../components/Card.vue";
+import Card from "../../components/Card.vue";
 import GRadioButton from "../controls/GRadioButton.vue";
-import { useStores } from "../stores/Stores";
+import { useStores } from "../../stores/Stores";
 const store = useStores();
 const selected = computed((label: string) => {
   store.FavoriteStation.station.callSign === label ? "bg-yellow" : "";

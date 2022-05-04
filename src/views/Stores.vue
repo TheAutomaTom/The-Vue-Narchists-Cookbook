@@ -19,9 +19,9 @@
         </template>
         <template v-slot:card-footer> </template>
       </Card>
-      <StoresRadioButtons />
-      <StoresStationSelector />
-      <StoresAddStation />
+      <RadioButtons />
+      <StationSelector />
+      <AddStation />
     </template>
   </Body>
 </template>
@@ -29,7 +29,7 @@
 <script setup lang="ts">
 import Body from "../components/Body.vue";
 import Card from "../components/Card.vue";
-import StoresRadioButtons from "../components/StoresRadioButtons.vue";
-import StoresStationSelector from "../components/StoresStationSelector.vue";
-import StoresAddStation from "../components/StoresAddStation.vue";
+import RadioButtons from "../components/Stores/RadioButtons.vue";
+import StationSelector from "../components/Stores/StationSelector.vue";
+import AddStation from "../components/Stores/AddStation.vue";
 </script>

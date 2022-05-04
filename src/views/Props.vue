@@ -15,10 +15,16 @@
           <Card>
             <template v-slot:card-title>Child Component</template>
             <template v-slot:card-content class="text-lg">
-              <PropsExample :message="msg" :routerProp="routerProp" />
+              <PropsExample :message="msg"  />
+              
             </template>
           </Card>
 
+              <p>Note: <strong>{{routerMeta.routerProp}}</strong></p>
+              <p>P.S.: <strong>{{routerMeta.anotherRouterProp}}</strong></p>
+              <hr>
+              <p>P.P.S.: Router can also evaluate url query data and send props based on functions defined in index.ts  </p>
+              <hr>
           <!-- Syntax notes... -->
           <p>Parent Syntax:</p>
           <div class="code-text">
@@ -44,9 +50,13 @@ import Card from "../components/Card.vue";
 import PropsExample from "../components/PropsExample.vue";
 import { ref } from "vue";
 
-const props = defineProps({
-  routerProp: { type: String },
-});
+import router from '../router/index'
+
+// const props = defineProps({
+//   routerProp: { type: String },
+// });
+
+const routerMeta = router.currentRoute.value.meta;
 
 const msg = ref("Can you hear me, now?");
 const curliesOpen = "{{";
