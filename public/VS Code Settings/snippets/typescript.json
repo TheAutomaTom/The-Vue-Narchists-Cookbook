@@ -1,0 +1,50 @@
+{
+  "Pinia Boilerplate (modified from https://gist.github.com/danielkellyio/d82bd6c803e3ec04e498b38cccf63981)": {
+    "prefix": "pinia-standard-template",
+    "description": "Bootstrap the code needed for a Vue.js Pinia store file",
+    "body": [
+      "import { ref, computed } from \"vue\";",
+      "import { defineStore } from \"pinia\";",
+      "",
+      "export const use$TM_FILENAME_BASE = defineStore(\"$TM_FILENAME_BASE\", {",
+      "  state: (): I$TM_FILENAME_BASE => ({",
+      "     //member: value,",
+      "  }),",
+      "  getters: {},",
+      "  actions: {},",
+      "});",
+      "",
+      ""
+    ]
+  },
+  "Pinia Comp API Boilerplate": {
+    "prefix": "pinia-comp-api-template",
+    "description": "Bootstrap the code needed for a Vue.js Pinia store file",
+    "body": [
+      "import { ref, computed } from \"vue\";",
+      "import { defineStore } from \"pinia\";",
+      "",
+      "export const use$TM_FILENAME_BASE = defineStore(\"$TM_FILENAME_BASE\", () =>{",
+      "  const myObject = ref({ ",
+      "  myProp: \"my value\"",
+      "  });",
+      "",
+      "  const myComputed = computed(()=>",
+      "    `Computing ${myObject.value.myProp} is so cool!`",
+      "  );",
+      "",
+      "  // Lambda replaces `actions: {}`...",
+      "  const changeValue = (newValue:string) => {",
+      "    myObject.value.myProp = newValue;",
+      "  };",
+      "",
+      "return {",
+      "  myObject,",
+      "  myComputed,",
+      "  changeValue",
+      "}",
+      "});",
+      ""
+    ]
+  }
+}

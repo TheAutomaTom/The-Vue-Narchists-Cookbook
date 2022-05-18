@@ -1,0 +1,30 @@
+Keybindings, Settings, Snippets folder:
+C:\Users\[User Name]\AppData\Roaming\Code\User
+
+Extentions: Paste into terminal to install (you can doo all at once)..
+code --install-extension adammaras.overtype
+code --install-extension antfu.browse-lite
+code --install-extension antfu.vite
+code --install-extension bradlc.vscode-tailwindcss
+code --install-extension christian-kohler.npm-intellisense
+code --install-extension christian-kohler.path-intellisense
+code --install-extension csstools.postcss
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension eamodio.gitlens
+code --install-extension esbenp.prettier-vscode
+code --install-extension formulahendry.auto-close-tag
+code --install-extension formulahendry.auto-rename-tag
+code --install-extension mhutchie.git-graph
+code --install-extension mikestead.dotenv
+code --install-extension ms-vscode.vscode-typescript-tslint-plugin
+code --install-extension nick-rudenko.back-n-forth
+code --install-extension sdras.vue-vscode-snippets
+code --install-extension sibiraj-s.vscode-scss-formatter
+code --install-extension steoates.autoimport
+code --install-extension streetsidesoftware.code-spell-checker
+code --install-extension syler.sass-indented
+code --install-extension Tyriar.sort-lines
+code --install-extension VisualStudioExptTeam.vscodeintellicode
+code --install-extension Vue.volar
+code --install-extension Wscats.vue
+code --install-extension xabikos.JavaScriptSnippets

@@ -1,0 +1,72 @@
+{
+  "explorer.confirmDelete": false,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "javascript.format.semicolons": "insert",
+  "javascript.inlayHints.enumMemberValues.enabled": true,
+  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "editor.tabSize": 2,
+  "editor.emptySelectionClipboard": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.minimap.maxColumn": 60,
+  "editor.minimap.renderCharacters": false,
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "cSpell.userWords": [
+    "angellist",
+    "Astro",
+    "Automa",
+    "browserslist",
+    "copyfiles",
+    "cpanel",
+    "fontface",
+    "Gheckbox",
+    "Ginput",
+    "Grossi",
+    "materialdesignicons",
+    "mdis",
+    "pinia",
+    "postbuild",
+    "postcss",
+    "prebuild",
+    "roboto",
+    "tailwindcss",
+    "toastify",
+    "todos",
+    "unformat",
+    "vite",
+    "vitejs",
+    "Vuelidate",
+    "vuetify",
+    "Vuex"
+  ],
+  "html.format.wrapAttributes": "force-aligned",
+  "html.format.wrapAttributesIndentSize": 2,
+  "html.format.wrapLineLength": 84,
+  "editor.formatOnSave": true,
+  "vetur.format.defaultFormatterOptions": {
+    "js-beautify-html": {
+      "wrap_attributes": "force-expand-multiline"
+    },
+    "prettyhtml": {
+      "printWidth": 100,
+      "singleQuote": false,
+      "wrapAttributes": false,
+      "sortAttributes": false
+    }
+  },
+  "vetur.validation.templateProps": true,
+  "material-icon-theme.activeIconPack": "vue_vuex",
+  "material-icon-theme.folders.associations": {
+    "*": ""
+  },
+  "material-icon-theme.folders.theme": "classic",
+  "material-icon-theme.folders.color": "#fff44f",
+  "workbench.startupEditor": "none",
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "Cascadia Code light, 'Cascadia Code light', monospace",
+  "explorer.confirmDragAndDrop": false,
+  "files.saveConflictResolution": "overwriteFileOnDisk"
+}
